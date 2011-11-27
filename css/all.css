@@ -130,7 +130,7 @@ a:focus {
 }
 
 p {
-	margin: 0 0 1.5em 0;
+	margin: 0 0 1em 0;
 }
 
 /*
@@ -320,6 +320,7 @@ dl.inheritsList dd {
 	line-height: 1.1em
 }
 
+section  .description,
 .fixedFont.heading + .description {
 	font-size: 1.2em;
 }
@@ -337,6 +338,28 @@ pre.code {
 /* Start content */
 
 
+div.content ul,
+div.content ol {
+  margin-bottom: 1em;
+}
+
+div.content .description ul,
+div.content .description ol {
+  padding-left: 20px;
+}
+
+div.content .description ul {
+  list-style: disc;
+}
+
+div.content .description ol {
+  list-style: decimal;
+}
+
+div.content .description h2 {
+  margin-bottom: 1em;
+  font-weight: bold;
+}
 
 /* Start general styles */
 .light {

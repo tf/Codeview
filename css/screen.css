@@ -100,15 +100,10 @@ div.content {
 	float: left;
 	width: 70%;
 	min-width: 300px;
-	max-width: 600px;
+	max-width: 1000px;
 }
 div.innerContent {
 	padding: 0 0 0 2.5em;
-}
-
-div.content ul,
-div.content ol {
-	margin-bottom: 3em;
 }
 
 div.content ul.methodDetail {
@@ -131,7 +126,7 @@ div.content *.classTitle {
 }
 
 div.content div.intro {
-	margin: 15px 0 45px
+	margin: 15px 0 15px
 }
 
 div.content p.summary {
@@ -157,7 +152,7 @@ div.content div.props {
 	position: relative;
 	left: -10px;
 	margin-bottom: 2.5em;
-	padding: 10px 15px 15px 15px;
+	padding: 20px 15px 15px 15px;
 	overflow: hidden;
 }
 

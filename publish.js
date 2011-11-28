@@ -83,9 +83,19 @@ function publish(symbolSet) {
 		symbol.methods = symbol.getMethods(); // 2
 		
 		var output = "";
+          
+                symbol.__linkBase = '../';
 		output = classTemplate.process(symbol);
 		
 		IO.saveFile(publish.conf.outDir+publish.conf.symbolsDir, ((JSDOC.opt.u)? Link.filemap[symbol.alias] : symbol.alias) + publish.conf.ext, output);
+
+          if (JSDOC.opt.D.index=="symbol" && symbol.comment.getTag('index').length) {
+            symbol.__linkBase = '';
+            output = classTemplate.process(symbol);
+	    IO.saveFile(publish.conf.outDir, "index"+publish.conf.ext, output);
+          }
+
+          delete symbol.__linkBase;
 	}
 	
 	// create the class index page
@@ -95,7 +105,7 @@ function publish(symbolSet) {
 	catch(e) { print(e.message); quit(); }
 	
 	var classesIndex = classesindexTemplate.process(publish.classes);
-	IO.saveFile(publish.conf.outDir, (JSDOC.opt.D.index=="files"?"allclasses":"index")+publish.conf.ext, classesIndex);
+	IO.saveFile(publish.conf.outDir, (JSDOC.opt.D.index!="files"&&JSDOC.opt.D.index!="symbol"?"index":"allclasses")+publish.conf.ext, classesIndex);
 	classesindexTemplate = classesIndex = classes = null;
 	
 	// create the file index page

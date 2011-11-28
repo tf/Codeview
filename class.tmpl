@@ -1,4 +1,4 @@
-{! Link.base = "../"; /* all generated links will be relative to this */ !}
+{! Link.base = data.__linkBase; /* all generated links will be relative to this */ !}
 {+subtemplate("subtemplates/head.tmpl", {subtitle: data.alias})+}
 {+subtemplate("subtemplates/menu.tmpl")+}
 <div class="content">
